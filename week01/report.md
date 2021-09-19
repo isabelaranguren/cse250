@@ -4,12 +4,10 @@ __Isabel Aranguren__
 
 ## Elevator pitch
 
-_The purpose of this assignment is to teach you how to visualise  data using Altair_
+_The purpose of this assignment is to teach you how to set up our enviroments and visualise  data using Altair, the document is proof that the setup was successful and the readings were completed_
 
 ### GRAND QUESTION 1
 #### Finish the readings and come to class prepared with any questions to get your environment working smoothly.
-
-##### Yes, I finished the readings 
 
 ### GRAND QUESTION 2
 
