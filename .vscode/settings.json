@@ -1,0 +1,8 @@
+{
+    "jupyter.jupyterServerType": "local",
+
+    "markdown-pdf.styles": [
+  ".vscode/my.css",
+]
+}
+

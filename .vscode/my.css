@@ -1,0 +1,19 @@
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif) !important;
+    font-size: 15px !important;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px !important;
+    border-bottom: #E3E3E3;
+	border-bottom-style: solid;
+}
+
+
+table td, table th {
+  border-width: 1px !important;
+  border-color: #E3E3E3 !important;
+  border-style: solid !important; 
+}

@@ -30,12 +30,17 @@ df.year = pd.to_datetime(df.year, format='%Y')
 df_agg = df.groupby('name')
 df_agg.head()
 my_name = df.query("name == 'Isabel'")
-my_name.head()
+my_name.head(-10)
 
 
 # %%
 numOfIsabelByBirthYear = df.query('name == "Isabel" & year == 2001') # 3468 Isabel's in 2001
 numOfIsabelByBirthYear.head()
+
+print(numOfIsabelByBirthYear
+    .head()
+    .filter(["name", "year", "Total"])
+    .to_markdown(index=False))
 
 
 # %%
@@ -95,6 +100,9 @@ isabel_point
 
 # %%
 brit = df.query("name == 'Brittany'")
+
+
+# %%
 britStd = pd.DataFrame({
     'year' : [brit.year.median() + (brit.year.std()),brit.year.median() - (brit.year.std()),brit.year.median()],
     'color' : ['red','green','red'],
@@ -136,6 +144,13 @@ overlay = (alt.Chart(britStd)
 
 
 # %%
+print(brit
+    .head(5)
+    .filter(["name", "year", "Total"])
+    .to_markdown(index=False))
+
+
+# %%
 britChart = base + area + overlay
 britChart.save("brit_final.png")
 
@@ -144,7 +159,13 @@ britChart.save("brit_final.png")
 
 # %%
 # Subset the data
-mmpp = df.query('name in ["Mary","Martha","Peter","Paul"] & year > 1919 & year < 2005')
+mmpp = df.query('name in ["Mary","Martha","Peter","Paul"] & year > 1919 & year < 2005').to_markdown(index=False))
+
+
+# %%
+print(mmpp
+    .head(5)
+    .to_markdown(index=False))
 
 
 # %%
@@ -169,6 +190,15 @@ characterNameChart = (alt.Chart(characterName)
                              alt.X('year', title = "Year"),
                              alt.Y('Total', title="Number of Names"))
                         .mark_line()).properties(width=600,height=450, title="Q4. Bella Swan from Twilight")
+
+
+# %%
+
+
+print(characterName
+      .head()
+      .filter(["name", "year", "Total"])
+      .to_markdown(index=False))
 
 
 # %%
