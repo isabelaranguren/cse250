@@ -3,6 +3,7 @@
 
     "markdown-pdf.styles": [
   ".vscode/my.css",
-]
+],
+"liveServer.settings.port": 5501
 }
 

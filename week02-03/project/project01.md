@@ -4,7 +4,7 @@
 **Isabel Aranguren**
 
 ## Elevator pitch
-_What's your name is an analysis made by using the data world baby names by states. Using Altair package and pandas, I created several charts, chart descriptions and tables_
+_Popular names come and go, the fastest rising or falling baby names mirror cultural trends, changing fashions or world events.What's your name is an analysis made by using the data world baby names by states. Using Altair package and pandas, see how the given names from the last few decades were influenced by movies and trends_
 
 ### GRAND QUESTION 1
 
@@ -113,8 +113,7 @@ print(brit
 
 #### 3. Mary, Martha, Peter, and Paul are all Christian names. From 1920 - 2000, compare the name usage of each of the four names.
 
-
-_type your results and analysis here_
+_Looking at the naming trend over these years, you might conclude that some old-fashioned names have grown out of favor with the American population. According to the figure all of these names are in decline. Mary experienced peak diversity in the 1950’s, but its popularity has been decreasing over the past 4 decades. The name "Paul" peaked in 1955, but not as high as Mary. Peter was at its peak from the late 1950s to the early 1960s. The name Martha is the least popular of all, peaking in the late 1940s and steadily declining ever since_
 
 ##### TECHNICAL DETAILS
 
@@ -133,8 +132,8 @@ mmppChart.save('mmppChart.png')
 
 
 ```
+_The following chart shows comparison between the names Mary, Martha, Peter & Paul between the years 1920 & 2020_
 
-_Comparison between the names Mary, Martha, Peter & Paul between the years 1920 & 2000_
 
 ![](mmppChart.png)
 

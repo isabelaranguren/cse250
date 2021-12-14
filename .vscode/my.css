@@ -1,6 +1,7 @@
 body {
 	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif) !important;
-    font-size: 15px !important;
+  font-size: var(--vscode-markdown-font-size, 17px) !important;
+
 }
 
 h1 {

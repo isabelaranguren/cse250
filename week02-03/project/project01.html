@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>project01.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 17px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+<link rel="stylesheet" href="file:///Users/isa/Documents/GitHub/cse250/.vscode/my.css" type="text/css">
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="client-report---whats-your-name">Client Report - What's your name</h1>
+<p><strong>Course CSE 250</strong>
+<strong>Isabel Aranguren</strong></p>
+<h2 id="elevator-pitch">Elevator pitch</h2>
+<p><em>Popular names come and go, the fastest rising or falling baby names mirror cultural trends, changing fashions or world events.What's your name is an analysis made by using the data world baby names by states. Using Altair package and pandas, see how the given names from the last few decades were influenced by movies and trends</em></p>
+<h3 id="grand-question-1">GRAND QUESTION 1</h3>
+<h4 id="1-how-does-your-name-at-your-birth-year-compare-to-its-use-historically"># 1. How does your name at your birth year compare to its use historically?</h4>
+<p><em>The name Isabel according to this dataset, started to grow exponentially in the 1990s and early 2000s. In my birth year, it was and at one of its highest points. It reached its final peak in the year 2003, and its popularity has been decreasing ever since.</em></p>
+<h5 id="technical-details">TECHNICAL DETAILS</h5>
+<pre class="hljs"><code><div><span class="hljs-comment"># %%</span>
+my_name = df.query(<span class="hljs-string">"name == 'Isabel'"</span>)
+isabel_chart = (alt.Chart(my_name, title=<span class="hljs-string">"Popularity"</span>)
+    .encode(
+        alt.X(<span class="hljs-string">'year(year):T'</span>, title = <span class="hljs-string">"Year"</span>),
+        alt.Y(<span class="hljs-string">'Total:Q'</span>,title=<span class="hljs-string">"Number of Names"</span>)
+    )
+    .mark_bar().properties(width=<span class="hljs-number">700</span>,height=<span class="hljs-number">350</span>)
+)
+
+<span class="hljs-comment"># %%</span>
+my_year = pd.DataFrame({
+    <span class="hljs-string">'year'</span> : [<span class="hljs-number">2001</span>],
+    <span class="hljs-string">'Total'</span> : [my_name.query(<span class="hljs-string">"year == 2001"</span>).Total.values[<span class="hljs-number">0</span>]],
+    <span class="hljs-string">'label'</span> : [<span class="hljs-string">"Birth Year"</span>]})
+
+<span class="hljs-comment"># %%</span>
+my_year.Total = my_year.Total.astype(<span class="hljs-string">"int64"</span>,copy=<span class="hljs-literal">True</span>)
+my_year.year = pd.to_datetime(my_year.year,format=<span class="hljs-string">'%Y'</span>)
+
+<span class="hljs-comment"># %%</span>
+text_overlay = (alt.Chart(my_year).mark_text(align=<span class="hljs-string">'right'</span>,dy=<span class="hljs-number">-10</span>,baseline=<span class="hljs-string">'middle'</span>)
+    .encode
+    (
+        x = alt.X(<span class="hljs-string">'year'</span>),
+        y = alt.Y(<span class="hljs-string">'Total:Q'</span>),
+        text = <span class="hljs-string">'label'</span>
+    )
+)
+
+<span class="hljs-comment"># %%</span>
+my_point = (alt.Chart(my_year).mark_circle(color = <span class="hljs-string">'red'</span>)
+    .encode
+    (
+        x = alt.X(<span class="hljs-string">'year'</span>                                        ),
+        y = alt.Y(<span class="hljs-string">'Total:Q'</span>)
+    )
+)
+
+<span class="hljs-comment"># %%</span>
+isabel_point = isabel_chart  + text_overlay + my_point
+isabel_point.save(<span class="hljs-string">"my_point.png"</span>)
+</div></code></pre>
+<p><img src="my_point.png" alt=""></p>
+<pre class="hljs"><code><div>numOfIsabelByBirthYear = df.query(<span class="hljs-string">'name == "Isabel" &amp; year == 2001'</span>) <span class="hljs-comment"># 3468 Isabel's in 2001</span>
+
+print(numOfIsabelByBirthYear
+    .head()
+    .filter([<span class="hljs-string">"name"</span>, <span class="hljs-string">"year"</span>, <span class="hljs-string">"Total"</span>])
+    .to_markdown(index=<span class="hljs-literal">False</span>))
+</div></code></pre>
+<p><em>The name Isabel has been used a total of 3486 times in the year 2001</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">name</th>
+<th style="text-align:left">year</th>
+<th style="text-align:right">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Isabel</td>
+<td style="text-align:left">2001-01-01 00:00:00</td>
+<td style="text-align:right">3486</td>
+</tr>
+</tbody>
+</table>
+<h3 id="grand-question-2">GRAND QUESTION 2</h3>
+<h4 id="2-if-you-talked-to-someone-named-brittany-on-the-phone-what-is-your-guess-of-their-age-what-ages-would-you-not-guess">2. If you talked to someone named Brittany on the phone, what is your guess of their age? What ages would you not guess?</h4>
+<p><em>The name Brittany, according to this dataset, was popular from 1978-2000. If I were to guess what age she is, given the year is 2021, her age is most likely between 30 and 16 years old. Due to the absence of the name from 1968, she couldn't be older than 51.</em></p>
+<h5 id="technical-details">TECHNICAL DETAILS</h5>
+<pre class="hljs"><code><div>base = (alt.Chart(brit, title=<span class="hljs-string">"The Name Brittany has Been Used From 1960's - 2015"</span>)
+    .mark_area(color=<span class="hljs-string">"#ff6961"</span>)
+    .encode(
+        x = alt.X(<span class="hljs-string">'year'</span>, title=<span class="hljs-string">"Year"</span>),
+        y = alt.Y(<span class="hljs-string">'Total'</span>, title=<span class="hljs-string">"Number of Names"</span>)
+    )
+    .properties(width=<span class="hljs-number">600</span>,height=<span class="hljs-number">350</span>)
+)
+</div></code></pre>
+<p><img src="brit_final.png" alt=""></p>
+<pre class="hljs"><code><div>print(brit
+    .head(<span class="hljs-number">5</span>)
+    .filter([<span class="hljs-string">"name"</span>, <span class="hljs-string">"year"</span>, <span class="hljs-string">"Total"</span>])
+    .to_markdown(index=<span class="hljs-literal">False</span>))
+</div></code></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">name</th>
+<th style="text-align:left">year</th>
+<th style="text-align:right">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Brittany</td>
+<td style="text-align:left">1968-01-01 00:00:00</td>
+<td style="text-align:right">5</td>
+</tr>
+<tr>
+<td style="text-align:left">Brittany</td>
+<td style="text-align:left">1969-01-01 00:00:00</td>
+<td style="text-align:right">12</td>
+</tr>
+<tr>
+<td style="text-align:left">Brittany</td>
+<td style="text-align:left">1970-01-01 00:00:00</td>
+<td style="text-align:right">32</td>
+</tr>
+<tr>
+<td style="text-align:left">Brittany</td>
+<td style="text-align:left">1971-01-01 00:00:00</td>
+<td style="text-align:right">81</td>
+</tr>
+<tr>
+<td style="text-align:left">Brittany</td>
+<td style="text-align:left">1972-01-01 00:00:00</td>
+<td style="text-align:right">158</td>
+</tr>
+</tbody>
+</table>
+<h3 id="grand-question-3">GRAND QUESTION 3</h3>
+<h4 id="3-mary-martha-peter-and-paul-are-all-christian-names-from-1920---2000-compare-the-name-usage-of-each-of-the-four-names">3. Mary, Martha, Peter, and Paul are all Christian names. From 1920 - 2000, compare the name usage of each of the four names.</h4>
+<p><em>Looking at the naming trend over these years, you might conclude that some old-fashioned names have grown out of favor with the American population. According to the figure all of these names are in decline. Mary experienced peak diversity in the 1950’s, but its popularity has been decreasing over the past 4 decades. The name &quot;Paul&quot; peaked in 1955, but not as high as Mary. Peter was at its peak from the late 1950s to the early 1960s. The name Martha is the least popular of all, peaking in the late 1940s and steadily declining ever since</em></p>
+<h5 id="technical-details">TECHNICAL DETAILS</h5>
+<pre class="hljs"><code><div><span class="hljs-comment"># Subset the data</span>
+mmpp = df.query(<span class="hljs-string">'name in ["Mary","Martha","Peter","Paul"] &amp; year &gt; 1919 &amp; year &lt; 2005'</span>)
+
+<span class="hljs-comment"># Chart the subset</span>
+mmppChart = (alt.Chart(mmpp, title=<span class="hljs-string">'Q3. Mary, Martha, Peter &amp; Paul by Year'</span>)
+              .encode(
+                  alt.X(<span class="hljs-string">'year(year):T'</span>, title = <span class="hljs-string">"Year"</span>),
+                  alt.Y(<span class="hljs-string">'Total'</span>,title=<span class="hljs-string">"Number of Names"</span>),
+                  color = <span class="hljs-string">'name'</span>)
+              .mark_line()).properties(width=<span class="hljs-number">800</span>,height=<span class="hljs-number">450</span>)
+mmppChart.save(<span class="hljs-string">'mmppChart.png'</span>)
+
+
+</div></code></pre>
+<p><em>The following chart shows comparison between the names Mary, Martha, Peter &amp; Paul between the years 1920 &amp; 2020</em></p>
+<p><img src="mmppChart.png" alt=""></p>
+<pre class="hljs"><code><div>print(mmpp
+    .head(<span class="hljs-number">5</span>)
+    .to_markdown(index=<span class="hljs-literal">False</span>))
+</div></code></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">name</th>
+<th style="text-align:left">year</th>
+<th style="text-align:right">AK</th>
+<th style="text-align:right">AL</th>
+<th style="text-align:right">AR</th>
+<th style="text-align:right">AZ</th>
+<th style="text-align:right">CA</th>
+<th style="text-align:right">CO</th>
+<th style="text-align:right">CT</th>
+<th style="text-align:right">DC</th>
+<th style="text-align:right">DE</th>
+<th style="text-align:right">FL</th>
+<th style="text-align:right">GA</th>
+<th style="text-align:right">HI</th>
+<th style="text-align:right">IA</th>
+<th style="text-align:right">ID</th>
+<th style="text-align:right">IL</th>
+<th style="text-align:right">IN</th>
+<th style="text-align:right">KS</th>
+<th style="text-align:right">KY</th>
+<th style="text-align:right">LA</th>
+<th style="text-align:right">MA</th>
+<th style="text-align:right">MD</th>
+<th style="text-align:right">ME</th>
+<th style="text-align:right">MI</th>
+<th style="text-align:right">MN</th>
+<th style="text-align:right">MO</th>
+<th style="text-align:right">MS</th>
+<th style="text-align:right">MT</th>
+<th style="text-align:right">NC</th>
+<th style="text-align:right">ND</th>
+<th style="text-align:right">NE</th>
+<th style="text-align:right">NH</th>
+<th style="text-align:right">NJ</th>
+<th style="text-align:right">NM</th>
+<th style="text-align:right">NV</th>
+<th style="text-align:right">NY</th>
+<th style="text-align:right">OH</th>
+<th style="text-align:right">OK</th>
+<th style="text-align:right">OR</th>
+<th style="text-align:right">PA</th>
+<th style="text-align:right">RI</th>
+<th style="text-align:right">SC</th>
+<th style="text-align:right">SD</th>
+<th style="text-align:right">TN</th>
+<th style="text-align:right">TX</th>
+<th style="text-align:right">UT</th>
+<th style="text-align:right">VA</th>
+<th style="text-align:right">VT</th>
+<th style="text-align:right">WA</th>
+<th style="text-align:right">WI</th>
+<th style="text-align:right">WV</th>
+<th style="text-align:right">WY</th>
+<th style="text-align:right">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Martha</td>
+<td style="text-align:left">1920-01-01 00:00:00</td>
+<td style="text-align:right">11</td>
+<td style="text-align:right">258</td>
+<td style="text-align:right">224</td>
+<td style="text-align:right">21</td>
+<td style="text-align:right">131</td>
+<td style="text-align:right">66</td>
+<td style="text-align:right">55</td>
+<td style="text-align:right">20</td>
+<td style="text-align:right">23</td>
+<td style="text-align:right">81</td>
+<td style="text-align:right">501</td>
+<td style="text-align:right">17</td>
+<td style="text-align:right">131</td>
+<td style="text-align:right">29</td>
+<td style="text-align:right">355</td>
+<td style="text-align:right">460</td>
+<td style="text-align:right">134</td>
+<td style="text-align:right">401</td>
+<td style="text-align:right">114</td>
+<td style="text-align:right">135</td>
+<td style="text-align:right">98</td>
+<td style="text-align:right">33</td>
+<td style="text-align:right">190</td>
+<td style="text-align:right">124</td>
+<td style="text-align:right">254</td>
+<td style="text-align:right">187</td>
+<td style="text-align:right">36</td>
+<td style="text-align:right">398</td>
+<td style="text-align:right">61</td>
+<td style="text-align:right">56</td>
+<td style="text-align:right">16</td>
+<td style="text-align:right">136</td>
+<td style="text-align:right">35</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">407</td>
+<td style="text-align:right">670</td>
+<td style="text-align:right">169</td>
+<td style="text-align:right">30</td>
+<td style="text-align:right">857</td>
+<td style="text-align:right">19</td>
+<td style="text-align:right">227</td>
+<td style="text-align:right">33</td>
+<td style="text-align:right">416</td>
+<td style="text-align:right">418</td>
+<td style="text-align:right">16</td>
+<td style="text-align:right">269</td>
+<td style="text-align:right">11</td>
+<td style="text-align:right">73</td>
+<td style="text-align:right">116</td>
+<td style="text-align:right">172</td>
+<td style="text-align:right">11</td>
+<td style="text-align:right">8705</td>
+</tr>
+<tr>
+<td style="text-align:left">Martha</td>
+<td style="text-align:left">1921-01-01 00:00:00</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">307</td>
+<td style="text-align:right">216</td>
+<td style="text-align:right">18</td>
+<td style="text-align:right">161</td>
+<td style="text-align:right">70</td>
+<td style="text-align:right">57</td>
+<td style="text-align:right">34</td>
+<td style="text-align:right">18</td>
+<td style="text-align:right">83</td>
+<td style="text-align:right">523</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">139</td>
+<td style="text-align:right">28</td>
+<td style="text-align:right">393</td>
+<td style="text-align:right">536</td>
+<td style="text-align:right">124</td>
+<td style="text-align:right">407</td>
+<td style="text-align:right">130</td>
+<td style="text-align:right">119</td>
+<td style="text-align:right">98</td>
+<td style="text-align:right">37</td>
+<td style="text-align:right">199</td>
+<td style="text-align:right">105</td>
+<td style="text-align:right">300</td>
+<td style="text-align:right">190</td>
+<td style="text-align:right">37</td>
+<td style="text-align:right">428</td>
+<td style="text-align:right">62</td>
+<td style="text-align:right">83</td>
+<td style="text-align:right">20</td>
+<td style="text-align:right">118</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">402</td>
+<td style="text-align:right">744</td>
+<td style="text-align:right">186</td>
+<td style="text-align:right">36</td>
+<td style="text-align:right">849</td>
+<td style="text-align:right">28</td>
+<td style="text-align:right">279</td>
+<td style="text-align:right">43</td>
+<td style="text-align:right">420</td>
+<td style="text-align:right">478</td>
+<td style="text-align:right">20</td>
+<td style="text-align:right">297</td>
+<td style="text-align:right">13</td>
+<td style="text-align:right">57</td>
+<td style="text-align:right">101</td>
+<td style="text-align:right">204</td>
+<td style="text-align:right">9</td>
+<td style="text-align:right">9254</td>
+</tr>
+<tr>
+<td style="text-align:left">Martha</td>
+<td style="text-align:left">1922-01-01 00:00:00</td>
+<td style="text-align:right">9</td>
+<td style="text-align:right">326</td>
+<td style="text-align:right">219</td>
+<td style="text-align:right">23</td>
+<td style="text-align:right">126</td>
+<td style="text-align:right">67</td>
+<td style="text-align:right">56</td>
+<td style="text-align:right">17</td>
+<td style="text-align:right">13</td>
+<td style="text-align:right">103</td>
+<td style="text-align:right">533</td>
+<td style="text-align:right">9</td>
+<td style="text-align:right">142</td>
+<td style="text-align:right">18</td>
+<td style="text-align:right">364</td>
+<td style="text-align:right">497</td>
+<td style="text-align:right">129</td>
+<td style="text-align:right">386</td>
+<td style="text-align:right">149</td>
+<td style="text-align:right">109</td>
+<td style="text-align:right">109</td>
+<td style="text-align:right">31</td>
+<td style="text-align:right">192</td>
+<td style="text-align:right">90</td>
+<td style="text-align:right">292</td>
+<td style="text-align:right">220</td>
+<td style="text-align:right">20</td>
+<td style="text-align:right">453</td>
+<td style="text-align:right">47</td>
+<td style="text-align:right">57</td>
+<td style="text-align:right">15</td>
+<td style="text-align:right">109</td>
+<td style="text-align:right">40</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">427</td>
+<td style="text-align:right">675</td>
+<td style="text-align:right">201</td>
+<td style="text-align:right">29</td>
+<td style="text-align:right">799</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">278</td>
+<td style="text-align:right">37</td>
+<td style="text-align:right">421</td>
+<td style="text-align:right">501</td>
+<td style="text-align:right">18</td>
+<td style="text-align:right">273</td>
+<td style="text-align:right">14</td>
+<td style="text-align:right">39</td>
+<td style="text-align:right">82</td>
+<td style="text-align:right">225</td>
+<td style="text-align:right">5</td>
+<td style="text-align:right">9018</td>
+</tr>
+<tr>
+<td style="text-align:left">Martha</td>
+<td style="text-align:left">1923-01-01 00:00:00</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">341</td>
+<td style="text-align:right">236</td>
+<td style="text-align:right">27</td>
+<td style="text-align:right">159</td>
+<td style="text-align:right">63</td>
+<td style="text-align:right">38</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">10</td>
+<td style="text-align:right">130</td>
+<td style="text-align:right">450</td>
+<td style="text-align:right">10</td>
+<td style="text-align:right">131</td>
+<td style="text-align:right">15</td>
+<td style="text-align:right">335</td>
+<td style="text-align:right">490</td>
+<td style="text-align:right">137</td>
+<td style="text-align:right">425</td>
+<td style="text-align:right">138</td>
+<td style="text-align:right">121</td>
+<td style="text-align:right">87</td>
+<td style="text-align:right">30</td>
+<td style="text-align:right">194</td>
+<td style="text-align:right">88</td>
+<td style="text-align:right">292</td>
+<td style="text-align:right">232</td>
+<td style="text-align:right">27</td>
+<td style="text-align:right">447</td>
+<td style="text-align:right">51</td>
+<td style="text-align:right">62</td>
+<td style="text-align:right">14</td>
+<td style="text-align:right">138</td>
+<td style="text-align:right">30</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">395</td>
+<td style="text-align:right">690</td>
+<td style="text-align:right">168</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">808</td>
+<td style="text-align:right">19</td>
+<td style="text-align:right">275</td>
+<td style="text-align:right">34</td>
+<td style="text-align:right">442</td>
+<td style="text-align:right">233</td>
+<td style="text-align:right">22</td>
+<td style="text-align:right">293</td>
+<td style="text-align:right">11</td>
+<td style="text-align:right">45</td>
+<td style="text-align:right">72</td>
+<td style="text-align:right">210</td>
+<td style="text-align:right">10</td>
+<td style="text-align:right">8731</td>
+</tr>
+<tr>
+<td style="text-align:left">Martha</td>
+<td style="text-align:left">1924-01-01 00:00:00</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">342</td>
+<td style="text-align:right">257</td>
+<td style="text-align:right">39</td>
+<td style="text-align:right">166</td>
+<td style="text-align:right">58</td>
+<td style="text-align:right">49</td>
+<td style="text-align:right">23</td>
+<td style="text-align:right">11</td>
+<td style="text-align:right">124</td>
+<td style="text-align:right">541</td>
+<td style="text-align:right">15</td>
+<td style="text-align:right">133</td>
+<td style="text-align:right">20</td>
+<td style="text-align:right">372</td>
+<td style="text-align:right">511</td>
+<td style="text-align:right">141</td>
+<td style="text-align:right">456</td>
+<td style="text-align:right">120</td>
+<td style="text-align:right">121</td>
+<td style="text-align:right">83</td>
+<td style="text-align:right">35</td>
+<td style="text-align:right">164</td>
+<td style="text-align:right">76</td>
+<td style="text-align:right">285</td>
+<td style="text-align:right">215</td>
+<td style="text-align:right">38</td>
+<td style="text-align:right">455</td>
+<td style="text-align:right">45</td>
+<td style="text-align:right">45</td>
+<td style="text-align:right">19</td>
+<td style="text-align:right">111</td>
+<td style="text-align:right">40</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">420</td>
+<td style="text-align:right">729</td>
+<td style="text-align:right">186</td>
+<td style="text-align:right">41</td>
+<td style="text-align:right">811</td>
+<td style="text-align:right">14</td>
+<td style="text-align:right">318</td>
+<td style="text-align:right">20</td>
+<td style="text-align:right">507</td>
+<td style="text-align:right">487</td>
+<td style="text-align:right">15</td>
+<td style="text-align:right">155</td>
+<td style="text-align:right">15</td>
+<td style="text-align:right">41</td>
+<td style="text-align:right">72</td>
+<td style="text-align:right">196</td>
+<td style="text-align:right">20</td>
+<td style="text-align:right">9163</td>
+</tr>
+</tbody>
+</table>
+<h3 id="grand-question-4">GRAND QUESTION 4</h3>
+<h4 id="4-think-of-a-unique-name-from-a-famous-movie-plot-that-name-and-see-how-increases-line-up-with-the-movie-release">4. Think of a unique name from a famous movie. Plot that name and see how increases line up with the movie release.</h4>
+<p><em>According to the dataset, the name Bella started to rise to the top of the charts in 2010, probably because of the release of the &quot;Twilight&quot; book and movie series.</em></p>
+<h5 id="technical-details">TECHNICAL DETAILS</h5>
+<pre class="hljs"><code><div><span class="hljs-comment"># The following chart shows the popularity of the name Bella</span>
+characterName = df.query(<span class="hljs-string">'name == "Bella" &amp; year &gt;= 2007 &amp; year &lt;= 2020'</span>) 
+characterNameChart = (alt.Chart(characterName)
+                        .encode(
+                             alt.X(<span class="hljs-string">'year'</span>, title = <span class="hljs-string">"Year"</span>),
+                             alt.Y(<span class="hljs-string">'Total'</span>, title=<span class="hljs-string">"Number of Names"</span>))
+                        .mark_line()).properties(width=<span class="hljs-number">600</span>,height=<span class="hljs-number">450</span>, title=<span class="hljs-string">"Q4. Bella Swan from Twilight"</span>) 
+
+</div></code></pre>
+<p><em>insert your chart png here</em>
+<img src="bella_chart.png" alt=""></p>
+<pre class="hljs"><code><div><span class="hljs-comment"># </span>
+print(characterName
+      .head()
+      .filter([<span class="hljs-string">"name"</span>, <span class="hljs-string">"year"</span>, <span class="hljs-string">"Total"</span>])
+      .to_markdown(index=<span class="hljs-literal">False</span>))
+</div></code></pre>
+<p><em>Bella Swan from Twilight</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">name</th>
+<th style="text-align:left">year</th>
+<th style="text-align:right">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Bella</td>
+<td style="text-align:left">2007-01-01 00:00:00</td>
+<td style="text-align:right">2234</td>
+</tr>
+<tr>
+<td style="text-align:left">Bella</td>
+<td style="text-align:left">2008-01-01 00:00:00</td>
+<td style="text-align:right">2778</td>
+</tr>
+<tr>
+<td style="text-align:left">Bella</td>
+<td style="text-align:left">2009-01-01 00:00:00</td>
+<td style="text-align:right">4530</td>
+</tr>
+<tr>
+<td style="text-align:left">Bella</td>
+<td style="text-align:left">2010-01-01 00:00:00</td>
+<td style="text-align:right">5109</td>
+</tr>
+<tr>
+<td style="text-align:left">Bella</td>
+<td style="text-align:left">2011-01-01 00:00:00</td>
+<td style="text-align:right">4257</td>
+</tr>
+</tbody>
+</table>
+<h2 id="appendix-a-python-code">APPENDIX A (PYTHON CODE)</h2>
+<pre class="hljs"><code><div><span class="hljs-comment"># To add a new cell, type '# %%'</span>
+<span class="hljs-comment"># To add a new markdown cell, type '# %% [markdown]'</span>
+<span class="hljs-comment"># %% [markdown]</span>
+<span class="hljs-comment"># </span>
+<span class="hljs-comment"># # Grand Questions:</span>
+<span class="hljs-comment"># 1. How does your name at your birth year compare to its use historically?</span>
+<span class="hljs-comment"># 2. If you talked to someone named Brittany on the phone, what is your guess of their age? What ages would you not guess?</span>
+<span class="hljs-comment"># 3. Mary, Martha, Peter, and Paul are all Christian names. From 1920 - 2000, compare the name usage of each of the four names.</span>
+<span class="hljs-comment"># 4. Think of a unique name from a famous movie. Plot that name and see how increases line up with the movie release.</span>
+<span class="hljs-comment"># </span>
+
+<span class="hljs-comment"># %%</span>
+<span class="hljs-comment"># Imports</span>
+<span class="hljs-keyword">import</span> altair <span class="hljs-keyword">as</span> alt
+<span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+<span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd
+
+<span class="hljs-comment"># %% [markdown]</span>
+<span class="hljs-comment"># ## 1. How does your name at your birth year compare to its use historically?</span>
+
+<span class="hljs-comment"># %%</span>
+<span class="hljs-comment"># Read in data</span>
+url = <span class="hljs-string">'https://github.com/byuidatascience/data4names/raw/master/data-raw/names_year/names_year.csv'</span>
+df = pd.read_csv(url)
+
+
+<span class="hljs-comment"># %%</span>
+df.head()
+df.year = pd.to_datetime(df.year, format=<span class="hljs-string">'%Y'</span>)
+df_agg = df.groupby(<span class="hljs-string">'name'</span>)
+df_agg.head()
+my_name = df.query(<span class="hljs-string">"name == 'Isabel'"</span>)
+my_name.head(<span class="hljs-number">-10</span>)
+
+
+<span class="hljs-comment"># %%</span>
+numOfIsabelByBirthYear = df.query(<span class="hljs-string">'name == "Isabel" &amp; year == 2001'</span>) <span class="hljs-comment"># 3468 Isabel's in 2001</span>
+numOfIsabelByBirthYear.head()
+
+print(numOfIsabelByBirthYear
+    .head()
+    .filter([<span class="hljs-string">"name"</span>, <span class="hljs-string">"year"</span>, <span class="hljs-string">"Total"</span>])
+    .to_markdown(index=<span class="hljs-literal">False</span>))
+
+
+<span class="hljs-comment"># %%</span>
+isabel_chart = (alt.Chart(my_name, title=<span class="hljs-string">"Popularity"</span>)
+    .encode(
+        alt.X(<span class="hljs-string">'year(year):T'</span>, title = <span class="hljs-string">"Year"</span>),
+        alt.Y(<span class="hljs-string">'Total:Q'</span>,title=<span class="hljs-string">"Number of Names"</span>)
+    )
+    .mark_bar().properties(width=<span class="hljs-number">700</span>,height=<span class="hljs-number">350</span>)
+)
+
+
+<span class="hljs-comment"># %%</span>
+my_year = pd.DataFrame({
+    <span class="hljs-string">'year'</span> : [<span class="hljs-number">2001</span>],
+    <span class="hljs-string">'Total'</span> : [my_name.query(<span class="hljs-string">"year == 2001"</span>).Total.values[<span class="hljs-number">0</span>]],
+    <span class="hljs-string">'label'</span> : [<span class="hljs-string">"Birth Year"</span>]})
+
+
+<span class="hljs-comment"># %%</span>
+my_year.Total = my_year.Total.astype(<span class="hljs-string">"int64"</span>,copy=<span class="hljs-literal">True</span>)
+my_year.year = pd.to_datetime(my_year.year,format=<span class="hljs-string">'%Y'</span>)
+
+
+<span class="hljs-comment"># %%</span>
+<span class="hljs-comment"># TEXT </span>
+text_overlay = (alt.Chart(my_year).mark_text(align=<span class="hljs-string">'right'</span>,dy=<span class="hljs-number">-10</span>,baseline=<span class="hljs-string">'middle'</span>)
+    .encode
+    (
+        x = alt.X(<span class="hljs-string">'year'</span>),
+        y = alt.Y(<span class="hljs-string">'Total:Q'</span>),
+        text = <span class="hljs-string">'label'</span>
+    )
+)
+
+
+<span class="hljs-comment"># %%</span>
+my_point = (alt.Chart(my_year).mark_circle(color = <span class="hljs-string">'red'</span>)
+    .encode
+    (
+        x = alt.X(<span class="hljs-string">'year'</span>                                        ),
+        y = alt.Y(<span class="hljs-string">'Total:Q'</span>)
+    )
+)
+
+
+<span class="hljs-comment"># %%</span>
+isabel_point = isabel_chart  + text_overlay + my_point
+isabel_point
+<span class="hljs-comment"># isabel_point.save("my_point.png")</span>
+
+<span class="hljs-comment"># %% [markdown]</span>
+<span class="hljs-comment"># The name Isabel has been used a total of 3486 times in the year 2001</span>
+<span class="hljs-comment"># %% [markdown]</span>
+<span class="hljs-comment"># &lt;!-- ![](my_point.png) --&gt;</span>
+<span class="hljs-comment"># %% [markdown]</span>
+<span class="hljs-comment"># ## 2. If you talked to someone named Brittany on the phone, what is your guess of their age? What ages would you not guess?</span>
+
+<span class="hljs-comment"># %%</span>
+<span class="hljs-comment"># Subset the data</span>
+
+brit = df.query(<span class="hljs-string">"name == 'Brittany'"</span>)
+
+
+<span class="hljs-comment"># %%</span>
+britStd = pd.DataFrame({
+    <span class="hljs-string">'year'</span> : [brit.year.median() + (brit.year.std()),brit.year.median() - (brit.year.std()),brit.year.median()],
+    <span class="hljs-string">'color'</span> : [<span class="hljs-string">'red'</span>,<span class="hljs-string">'green'</span>,<span class="hljs-string">'red'</span>],
+    <span class="hljs-string">'text'</span> : [<span class="hljs-string">"Not Guess Range"</span>,<span class="hljs-string">"Not Guess Range"</span>,<span class="hljs-string">"Guess Range"</span>],
+    <span class="hljs-string">'y'</span> : [<span class="hljs-number">15000</span>]* <span class="hljs-number">3</span>
+})
+
+
+<span class="hljs-comment"># %%</span>
+base = (alt.Chart(brit, title=<span class="hljs-string">"The Name Brittany has Been Used From 1960's - 2015"</span>)
+    .mark_area(color=<span class="hljs-string">"#ff6961"</span>)
+    .encode(
+        x = alt.X(<span class="hljs-string">'year'</span>, title=<span class="hljs-string">"Year"</span>),
+        y = alt.Y(<span class="hljs-string">'Total'</span>, title=<span class="hljs-string">"Number of Names"</span>)
+    )
+    .properties(width=<span class="hljs-number">600</span>,height=<span class="hljs-number">350</span>)
+)
+
+
+<span class="hljs-comment"># %%</span>
+area = (alt.Chart(brit.query(<span class="hljs-string">"(year &lt; @britStd.year.values[0]) &amp; (year &gt; @britStd.year.values[1])"</span>))
+    .mark_area(color=<span class="hljs-string">'#77dd77'</span>)
+    .encode(
+        alt.X(<span class="hljs-string">'year'</span>),
+        alt.Y(<span class="hljs-string">'Total'</span>)
+       )
+    )
+
+
+<span class="hljs-comment"># %%</span>
+overlay = (alt.Chart(britStd)
+    .mark_text()
+    .encode(
+        x = <span class="hljs-string">'year'</span>,
+        y = <span class="hljs-string">'y'</span>,
+        text = <span class="hljs-string">'text'</span>
+    )
+)
+
+
+<span class="hljs-comment"># %%</span>
+print(brit
+    .head(<span class="hljs-number">5</span>)
+    .filter([<span class="hljs-string">"name"</span>, <span class="hljs-string">"year"</span>, <span class="hljs-string">"Total"</span>])
+    .to_markdown(index=<span class="hljs-literal">False</span>))
+
+
+<span class="hljs-comment"># %%</span>
+britChart = base + area + overlay
+britChart.save(<span class="hljs-string">"brit_final.png"</span>)
+
+<span class="hljs-comment"># %% [markdown]</span>
+<span class="hljs-comment"># ## 3. Mary, Martha, Peter, and Paul are all Christian names. From 1920 - 2000, compare the name usage of each of the four names.</span>
+
+<span class="hljs-comment"># %%</span>
+<span class="hljs-comment"># Subset the data</span>
+mmpp = df.query(<span class="hljs-string">'name in ["Mary","Martha","Peter","Paul"] &amp; year &gt; 1919 &amp; year &lt; 2005'</span>).to_markdown(index=<span class="hljs-literal">False</span>))
+
+
+<span class="hljs-comment"># %%</span>
+print(mmpp
+    .head(<span class="hljs-number">5</span>)
+    .to_markdown(index=<span class="hljs-literal">False</span>))
+
+
+<span class="hljs-comment"># %%</span>
+<span class="hljs-comment"># Chart the subset</span>
+mmppChart = (alt.Chart(mmpp, title=<span class="hljs-string">'Q3. Mary, Martha, Peter &amp; Paul by Year'</span>)
+              .encode(
+                  alt.X(<span class="hljs-string">'year(year):T'</span>, title = <span class="hljs-string">"Year"</span>),
+                  alt.Y(<span class="hljs-string">'Total'</span>,title=<span class="hljs-string">"Number of Names"</span>),
+                  color = <span class="hljs-string">'name'</span>)
+              .mark_line()).properties(width=<span class="hljs-number">800</span>,height=<span class="hljs-number">450</span>)
+mmppChart.save(<span class="hljs-string">'mmppChart.png'</span>) <span class="hljs-comment"># Save chart</span>
+
+<span class="hljs-comment"># %% [markdown]</span>
+<span class="hljs-comment"># ![](mmpp_chart.png)</span>
+<span class="hljs-comment"># %% [markdown]</span>
+<span class="hljs-comment"># ## 4. Think of a unique name from a famous movie. Plot that name and see how increases line up with the movie release.</span>
+
+<span class="hljs-comment"># %%</span>
+characterName = df.query(<span class="hljs-string">'name == "Bella" &amp; year &gt;= 2007 &amp; year &lt;= 2020'</span>) 
+characterNameChart = (alt.Chart(characterName)
+                        .encode(
+                             alt.X(<span class="hljs-string">'year'</span>, title = <span class="hljs-string">"Year"</span>),
+                             alt.Y(<span class="hljs-string">'Total'</span>, title=<span class="hljs-string">"Number of Names"</span>))
+                        .mark_line()).properties(width=<span class="hljs-number">600</span>,height=<span class="hljs-number">450</span>, title=<span class="hljs-string">"Q4. Bella Swan from Twilight"</span>)
+
+
+<span class="hljs-comment"># %%</span>
+
+
+print(characterName
+      .head()
+      .filter([<span class="hljs-string">"name"</span>, <span class="hljs-string">"year"</span>, <span class="hljs-string">"Total"</span>])
+      .to_markdown(index=<span class="hljs-literal">False</span>))
+
+
+<span class="hljs-comment"># %%</span>
+release_year = pd.DataFrame({
+    <span class="hljs-string">'year'</span> : [<span class="hljs-number">2008</span>],
+    <span class="hljs-string">'Total'</span> : [characterName.query(<span class="hljs-string">"year == 2008"</span>).Total.values[<span class="hljs-number">0</span>]],
+    <span class="hljs-string">'label'</span> : [<span class="hljs-string">"Release Year"</span>]})
+
+
+<span class="hljs-comment"># %%</span>
+release_year.Total = release_year.Total.astype(<span class="hljs-string">"int64"</span>,copy=<span class="hljs-literal">True</span>)
+release_year.year = pd.to_datetime(release_year.year,format=<span class="hljs-string">'%Y'</span>)
+
+
+<span class="hljs-comment"># %%</span>
+chracterNameChart = (alt.Chart(release_year).mark_circle(color = <span class="hljs-string">'red'</span>)
+    .encode
+    (
+        x = alt.X(<span class="hljs-string">'year'</span>, title = <span class="hljs-string">"Year"</span>),
+        y = alt.Y(<span class="hljs-string">'Total:Q'</span>)
+    )
+)
+
+
+<span class="hljs-comment"># %%</span>
+text_overlay = (alt.Chart(release_year).mark_text(align=<span class="hljs-string">'right'</span>,dy=<span class="hljs-number">-10</span>,baseline=<span class="hljs-string">'middle'</span>)
+    .encode
+    (
+        x = alt.X(<span class="hljs-string">'year'</span>),
+        y = alt.Y(<span class="hljs-string">'Total:Q'</span>),
+        text = <span class="hljs-string">'label'</span>
+    )
+)
+
+
+<span class="hljs-comment"># %%</span>
+bella_chart = chracterNameChart  + characterNameChart + text_overlay
+bella_chart.save(<span class="hljs-string">'bella_chart.png'</span>) <span class="hljs-comment"># Save chart</span>
+
+<span class="hljs-comment"># %% [markdown]</span>
+<span class="hljs-comment"># ![](bella_chart.png)</span>
+
+
+</div></code></pre>
+
+</body>
+</html>

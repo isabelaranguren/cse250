@@ -8,7 +8,6 @@
 Delayed flights are not something most people look forward to.  In 2003 the Bureau of Transportation Statistics (BTS) began collecting data on the causes of delayed flights. The categories they use are Air Carrier, National Aviation System, Weather, Late-Arriving Aircraft, and Security. 
 The task of this project is to clean the data, and search for insights about flight delays, 
 
-
 ## TECHNICAL DETAILS
 
 ### GRAND QUESTION 1
@@ -72,9 +71,10 @@ The worst would be ORD (Chicago) with 3,597,588 flights, and 830,825 delays for 
 
 #### What is the worst month to fly if you want to avoid delays? Include one chart to help support your answer, with the x-axis ordered by month. You also need to explain and justify how you chose to handle the missing Month data.
 
-![](delaysPerMonth.png)
-
 * As we can see in the chart above, June is the worst month for delays at the airports observed.
+
+![](delaysPerMonthChart.png)
+
 
 ### GRAND QUESTION 3
 
@@ -124,15 +124,6 @@ file.close()
 ## APPENDIX
 
 ```python
-# To add a new cell, type '# %%'
-# To add a new markdown cell, type '# %% [markdown]'
-# %% [markdown]
-# ### 1. Which airport has the worst delays? How did you choose to define “worst”? As part of your answer include a table that lists the total number of flights, total number of delayed flights, proportion of delayed flights, and average delay time in hours, for each airport.
-# ### 2. What is the worst month to fly if you want to avoid delays? Include one chart to help support your answer, with the x-axis ordered by month. You also need to explain and justify how you chose to handle the missing Month data.
-# ### 3. According to the BTS website the Weather category only accounts for severe weather delays. Other “mild” weather delays are included as part of the NAS category and the Late-Arriving Aircraft category. Calculate the total number of flights delayed by weather (either severe or mild) using these two rules:
-# ### 4. Create a barplot showing the proportion of all flights that are delayed by weather at each airport. What do you learn from this graph (Careful to handle the missing Late Aircraft data correctly)?¶
-# ### 5. Fix all of the varied NA types in the data to be consistent and save the file back out in the same format that was provided (this file shouldn’t have the missing values replaced with a value). Include one record example from your exported JSON file that has a missing value (No imputation in this file)
-# %% [markdown]
 # # Grand Question 1:
 # ## 1. Which airport has the worst delays? How did you choose to define “worst”? As part of your answer include a table that lists the total number of flights, total number of delayed flights, proportion of delayed flights, and average delay time in hours, for each airport.
 
